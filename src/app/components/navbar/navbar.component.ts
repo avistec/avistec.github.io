@@ -9,10 +9,14 @@ import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet'
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  mobile: boolean = false;
 
   constructor(private _bottomSheet: MatBottomSheet) { }
 
   ngOnInit(): void {
+    if (window.screen.width < 768) { // 768px portrait
+      this.mobile = true;
+    }
   }
 
   openBottomSheet(): void {
